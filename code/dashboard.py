@@ -510,13 +510,17 @@ import matplotlib.pyplot as plt
 import numpy as np
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split
+import os
 
 st.set_page_config(page_title="Digital Payment AI Dashboard", layout="wide")
 
 st.title("💳 Digital Payment AI Analytics Dashboard")
 
 # load data
-data = pd.read_csv("digital_payment_dataset.csv")
+# data = pd.read_csv("digital_payment_dataset.csv")
+BASE_DIR = os.path.dirname(__file__)
+data_path = os.path.join(BASE_DIR, "digital_payment_dataset.csv")
+data = pd.read_csv(data_path)
 
 # ---------------- SIDEBAR ----------------
 
@@ -761,9 +765,21 @@ state_selected = st.selectbox(
 # st.plotly_chart(fig,use_container_width=True)
 
 #Map Code
+# import json
+
+# # with open("../india_states.geojson") as f:
+# #     india_geo = json.load(f)
+# geo_path = os.path.join(BASE_DIR, "india_states.geojson")
+# with open(geo_path) as f:
+#     india_geo = json.load(f)
+import os
 import json
 
-with open("../india_states.geojson") as f:
+BASE_DIR = os.path.dirname(__file__)
+
+geo_path = os.path.join(BASE_DIR, "..", "india_states.geojson")
+
+with open(geo_path) as f:
     india_geo = json.load(f)
 
 state_data = pd.DataFrame({
