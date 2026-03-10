@@ -516,7 +516,7 @@ st.set_page_config(page_title="Digital Payment AI Dashboard", layout="wide")
 st.title("💳 Digital Payment AI Analytics Dashboard")
 
 # load data
-data = pd.read_csv("../dataset/digital_payment_dataset.csv")
+data = pd.read_csv("digital_payment_dataset.csv")
 
 # ---------------- SIDEBAR ----------------
 
